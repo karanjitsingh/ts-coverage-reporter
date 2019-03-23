@@ -19,10 +19,15 @@ namespace TsCoverageReporter
             var buildId = int.Parse(Environment.GetEnvironmentVariable("Build.BuildId"));
             var token = Environment.GetEnvironmentVariable("SYSTEM_ACCESSTOKEN");
 
-            UploadCoverageFile.UploadCodeCoverageAttachmentsToNewStore(buildId, projectId, args.ToList(), collectionUri, token);
+            var coverageDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var mergeFile = Path.Combine(coverageDir, Guid.NewGuid().ToString(), ".coverage.json");
+
+            Directory.CreateDirectory(coverageDir);
+
+            UploadCoverageFile.UploadCodeCoverageAttachmentsToNewStore(buildId, projectId, new List<string>() { mergeFile }, collectionUri, token);
         }
 
-        private static string MergeCoverageFiles(List<string> coverageFiles)
+        private static void MergeCoverageFiles(List<string> coverageFiles, string mergeFile)
         {
             CoverageReportParser parser = new CoverageReportParser(1, new string[] { }, new DefaultFilter(new string[] { }),
                     new DefaultFilter(new string[] { }),
@@ -54,10 +59,8 @@ namespace TsCoverageReporter
                     }
                 }
             }
-
-            string mergeFile = Path.GetTempFileName();
+            
             File.WriteAllText(mergeFile, JsonConvert.SerializeObject(fileCoverages));
-            return mergeFile;
         }
     }
 
