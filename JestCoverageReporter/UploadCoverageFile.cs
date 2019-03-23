@@ -5,7 +5,7 @@ using System.IO;
 using Microsoft.TeamFoundation.TestClient.PublishTestResults;
 using Microsoft.VisualStudio.Services.WebApi;
 
-namespace TsCoverageReporter
+namespace JestCoverageReporter
 {
     class UploadCoverageFile
     {

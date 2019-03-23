@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Palmmedia.ReportGenerator.Core.Parser;
 using Palmmedia.ReportGenerator.Core.Parser.Filtering;
 
-namespace TsCoverageReporter
+namespace JestCoverageReporter
 {
     class Program
     {
