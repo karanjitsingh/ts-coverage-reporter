@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>JestCoverageReporter</id>
+    <version>1.0.2</version>
+    <authors>JestCoverageReporter</authors>
+    <owners>JestCoverageReporter</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+  </metadata>
+  <files>
+    <!-- Add a third party notice file -->
+    <file src="E:\Github\ts-coverage-reporter\JestCoverageReporter\bin\Debug\net47\*.*" target="lib\net47" />
+  </files>
+</package>
