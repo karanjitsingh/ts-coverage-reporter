@@ -20,7 +20,7 @@ namespace JestCoverageReporter
             var token = Environment.GetEnvironmentVariable("SYSTEM_ACCESSTOKEN");
 
             var coverageDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
-            var mergeFile = Path.Combine(coverageDir, Guid.NewGuid().ToString() + ".coverage.json");
+            var mergeFile = Path.Combine(coverageDir, Guid.NewGuid().ToString() + ".cjson");
 
             Directory.CreateDirectory(coverageDir);
 
