@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "JestCoverageReporter": {
-      "commandName": "Project",
-      "commandLineArgs": "D:\\clover.xml"
-    }
-  }
-}

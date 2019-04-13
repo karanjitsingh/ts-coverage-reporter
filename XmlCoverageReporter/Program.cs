@@ -8,23 +8,25 @@ using Newtonsoft.Json;
 using Palmmedia.ReportGenerator.Core.Parser;
 using Palmmedia.ReportGenerator.Core.Parser.Filtering;
 
-namespace JestCoverageReporter
+namespace XmlCoverageReporter
 {
     class Program
     {
         static void Main(string[] args)
         {
+            var files = Directory.GetFiles(args[0], "*.xml", SearchOption.AllDirectories);
+
             var collectionUri = Environment.GetEnvironmentVariable("System.TeamFoundationCollectionUri");
             var projectId = Environment.GetEnvironmentVariable("System.TeamProjectId");
             int.TryParse(Environment.GetEnvironmentVariable("Build.BuildId"), out int buildId);
             var token = Environment.GetEnvironmentVariable("SYSTEM_ACCESSTOKEN");
 
-            var coverageDir = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+            var coverageDir = Path.Combine(args[0], Guid.NewGuid().ToString());
             var mergeFile = Path.Combine(coverageDir, Guid.NewGuid().ToString() + ".cjson");
 
             Directory.CreateDirectory(coverageDir);
 
-            MergeCoverageFiles(args.ToList(), mergeFile);
+            MergeCoverageFiles(files.ToList(), mergeFile);
             Console.WriteLine(mergeFile);
 
             UploadCoverageFile.UploadCodeCoverageAttachmentsToNewStore(buildId, projectId, new List<string>() { mergeFile }, collectionUri, token);
@@ -48,10 +50,10 @@ namespace JestCoverageReporter
                     foreach (var file in @class.Files)
                     {
                         FileCoverage resultFileCoverageInfo = new FileCoverage { FilePath = file.Path, LineCoverageStatus = new Dictionary<uint, CoverageStatus>() };
-                        int lineNumber = 1;
+                        int lineNumber = 0;
                         foreach (var line in file.lineCoverage)
                         {
-                            if (line != -1)
+                            if (line != -1 && lineNumber != 0)
                             {
                                 resultFileCoverageInfo.LineCoverageStatus.Add((uint)lineNumber, line == 0 ? CoverageStatus.NotCovered : CoverageStatus.Covered);
                             }

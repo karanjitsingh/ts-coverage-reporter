@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "XmlCoverageReporter": {
+      "commandName": "Project",
+      "commandLineArgs": "D:\\logs\\"
+    }
+  }
+}

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JestCoverageReporter", "JestCoverageReporter\JestCoverageReporter.csproj", "{CC3B79E7-4AAE-4E35-8F2C-1C0F15B77C7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XmlCoverageReporter", "XmlCoverageReporter\XmlCoverageReporter.csproj", "{CC3B79E7-4AAE-4E35-8F2C-1C0F15B77C7F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReportGenerator.Core", "ReportGenerator.Core\ReportGenerator.Core.csproj", "{B13CBA2E-55A7-4967-A20B-208EDD19474D}"
 EndProject
