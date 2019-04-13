@@ -29,7 +29,7 @@ namespace XmlCoverageReporter
             MergeCoverageFiles(files.ToList(), mergeFile);
             Console.WriteLine(mergeFile);
 
-            UploadCoverageFile.UploadCodeCoverageAttachmentsToNewStore(buildId, projectId, new List<string>() { mergeFile }, collectionUri, token);
+            //UploadCoverageFile.UploadCodeCoverageAttachmentsToNewStore(buildId, projectId, new List<string>() { mergeFile }, collectionUri, token);
         }
 
         private static void MergeCoverageFiles(List<string> coverageFiles, string mergeFile)
